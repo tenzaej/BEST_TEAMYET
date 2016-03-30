@@ -19,10 +19,12 @@
     <%= comment.created_at %> <br>
   <% end %>
   <!-- The very best answer -->
+  <%if @question.best_answer?%>
   <br>Answer vote count: <%= @question.best_answer.answer_vote_count %> <br>
   <%= @question.best_answer.content %>
   <%= @question.best_answer.created_at %>
   <a href="/users/<%= @question.best_answer.user.id %>"><%= @question.best_answer.user.username %></a>
+  <%end%>
   <!-- answer -->
   <% @question.answers.each do |answer| %>
     <br>Answer vote count: <%= answer.answer_vote_count %> <br>

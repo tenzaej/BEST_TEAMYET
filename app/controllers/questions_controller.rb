@@ -8,10 +8,11 @@ get '/questions/new' do
 end
 
 post '/questions' do
-  @question.new(params[:question])
-  if @question.save
-    redirect "/questions/#{@question.id}"
+ question = current_user.questions.new(title: params[:title], content: params[:content])
+  if question.save
+    redirect "/questions/#{question.id}"
   else
+    @errors = question.errors.full_messages
     erb :"questions/new"
   end
 end

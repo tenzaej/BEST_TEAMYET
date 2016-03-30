@@ -1,9 +1,11 @@
 <main class="container">
   <h1>hello questions index page!! </h1>
-
+  <%if logged_in?%>
+    <a href='/questions/new'>New Question</a><br><br>
+  <%end%>
   <% @questions.each do |question| %>
-    <a href="/questions/<%= question.id %>"><%= question.title %></a> <br>
-    Posted By: <a href="/users/<%= question.user.id %>"><%= question.user.username %></a> <br>
+    <a href="/questions/<%= question.id %>"><%= question.title %></a><br>
+    Posted By: <a href="/users/<%= question.user.id %>"><%= question.user.username %></a><br>
     Asked <%= question.time_since_creation %> <br>
     Vote count: <%= question.vote_count %> <br>
     Answer count: <%= question.answer_count %> <br>
