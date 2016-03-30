@@ -1,1 +1,53 @@
+<section class='user-info'>
+  <h2><%=@user.username%></h2>
+  <img src="<%=@user.image_url%>">
 
+  <div class="user-info">
+    <h4><%=@user.username%>'s Questions:</h4>
+     <ol>
+      <%@user.questions.each do |question|%>
+        <li><a href = "/questions/<%=question.id%>"><%=question.title%></a>
+            <span>Answers: <%=question.answers.count%> | Comments: <%=question.comments.count%> | Points: <%=question.votes.count%></span><br>
+            <span><%=preview_post(question.content)%></span>
+        </li>
+        <%end%>
+      </ol>
+
+      <h4><%=@user.username%>'s Answered Questions:</h4>
+      <ol>
+       <%@user.answers.each do |answer|%>
+        <li><a href ="/questions/<%=answer.question.id%>"><%=answer.question.title%></a>
+          <span>Answers: <%=answer.question.answers.count%> | Comments: <%=answer.question.comments.count%> | Points: <%=answer.question.votes.count%></span><br>
+          <span><%=preview_post(answer.content)%></span>
+        </li>
+        <%end%>
+      </ol>
+
+      <h4><%=@user.username%>'s Comments:</h4>
+      <ol>
+       <%@user.comments.each do |comment|%>
+        <li><a href ="/questions/<%=comment.commented_question.id%>"><%=comment.commented_question.title%></a>
+          <span>Answers: <%=comment.commented_question.answers.count%> | Comments: <%=comment.commented_question.comments.count%> | Points: <%=comment.commented_question.votes.count%></span><br>
+          <span><%=preview_post(comment.content)%></span>
+        </li>
+        <%end%>
+      </ol>
+
+
+    <!-- questions by user -->
+    <!-- answers by user -->
+    <!-- comments by user -->
+    <!-- favorited answers -->
+    <!-- upvoted posts -->
+
+
+
+
+
+
+
+
+
+
+  </div>
+</section>
