@@ -8,4 +8,8 @@ class Answer < ActiveRecord::Base
     self.votes.count
   end
 
+  def best_answer?(best_id)
+    self.id == best_id
+  end
+
 end
