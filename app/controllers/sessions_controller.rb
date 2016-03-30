@@ -1,3 +1,7 @@
+get '/sessions-helper' do
+  session.inspect
+end
+
 get '/session/new' do
   erb :'/session/new'
 end
