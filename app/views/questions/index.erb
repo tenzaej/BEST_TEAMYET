@@ -1,0 +1,14 @@
+<main class="container">
+  <h1>hello questions index page!! </h1>
+
+  <% @questions.each do |question| %>
+    <a href="/questions/<%= question.id %>"><%= question.title %></a> <br>
+    Posted By: <a href="/users/<%= question.user.id %>"><%= question.user.username %></a> <br>
+    Asked <%= question.time_since_creation %> <br>
+    Vote count: <%= question.vote_count %> <br>
+    Answer count: <%= question.answer_count %> <br>
+    Tags: <% question.tags.each do |tag| %>
+     <a href="/tags/<%=tag.id%>"><%= tag.name %></a><br>
+    <% end %><br>
+  <% end %>
+</main>

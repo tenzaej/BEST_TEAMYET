@@ -6,6 +6,8 @@ class CreateVotes < ActiveRecord::Migration
       t.integer :user_id
       t.integer :value, default: 1
 
+      # t.references :user
+
       t.timestamps(null:false)
     end
   end
