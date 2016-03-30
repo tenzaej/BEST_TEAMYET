@@ -1,9 +1,9 @@
 require 'faker'
 
-User.create(username: "Connor", email: "Connor@gmail.com", password: "12345")
-User.create(username: "Mitch", email: "Mitch@hotmail.com", password: "12345")
-User.create(username: "Eric", email: "Eric@gmail.com", password: "12345")
-User.create(username: "Chris", email: "Chris@gmail.com", password: "12345")
+User.create(username: "Connor", email: "Connor@gmail.com", password: "12345", image_url: Faker::Avatar.image)
+User.create(username: "Mitch", email: "Mitch@hotmail.com", password: "12345", image_url: Faker::Avatar.image)
+User.create(username: "Eric", email: "Eric@gmail.com", password: "12345", image_url: Faker::Avatar.image)
+User.create(username: "Chris", email: "Chris@gmail.com", password: "12345", image_url: Faker::Avatar.image)
 
 
 user_id = [1,2,3,4]
