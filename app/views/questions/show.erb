@@ -1,12 +1,14 @@
 <main class="container">
   <h1>show page for <%= @question.title %> </h1>
-  <% if author?(@question) %>
-  <a href="/questions/<%=@question.id%>/edit">Edit</a>
-   <form method="post" action="/questions/<%= @question.id %>">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete">
-    </form>
-  <% end %>
+  <% if logged_in? %>
+    <% if author?(@question) %>
+    <a href="/questions/<%=@question.id%>/edit">Edit</a>
+     <form method="post" action="/questions/<%= @question.id %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete">
+      </form>
+    <% end %>
+    <%end%>
   <!-- Question-->
   Question vote count: <%= @question.vote_count %> <br>
   <%= @question.content %>
