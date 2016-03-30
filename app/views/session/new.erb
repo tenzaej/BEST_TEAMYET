@@ -1,0 +1,14 @@
+<h1>Login</h1>
+<%if @errors%>
+  <ul>
+  <%@errors.each do |error|%>
+    <li><%=error%></li>
+    <%end%>
+  </ul>
+<%end%>
+
+<form action="/session" method="post">
+  <input type="text" name="email" placeholder="email">
+  <input type="password" name="password" placeholder="password">
+  <input type="submit" value="Login">
+</form>
