@@ -8,7 +8,7 @@ User.create(username: "Chris", email: "Chris@gmail.com", password: "12345")
 
 user_id = [1,2,3,4]
 20.times do
-  Question.create(user_id: user_id.sample, best_answer_id: (1..40).to_a.sample,content: Faker::Hipster.paragraph)
+  Question.create(user_id: user_id.sample, best_answer_id: (1..40).to_a.sample,content: Faker::Hipster.paragraph, title: Faker::Company.catch_phrase)
 end
 
 40.times do
