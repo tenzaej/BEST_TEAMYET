@@ -4,5 +4,8 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :comments, as: :commentable
 
-  # Remember to create a migration!
+  def answer_vote_count
+    self.votes.count
+  end
+
 end

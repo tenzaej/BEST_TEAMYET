@@ -30,8 +30,9 @@ class Question < ActiveRecord::Base
     else
       "#{seconds} seconds ago"
     end
-
   end
+
+
 
   # def time_since_creation
   #   ((Time.now - self.created_at) / 3600).round
