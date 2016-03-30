@@ -7,6 +7,8 @@ class Question < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  validates :title, :content, presence:
+
   def answer_count
     self.answers.count
   end
