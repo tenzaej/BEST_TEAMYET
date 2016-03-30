@@ -6,5 +6,35 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :taggings
   has_many :tags, through: :taggings
-  # Remember to create a migration!
+
+  def answer_count
+    self.answers.count
+  end
+
+  def vote_count
+    self.votes.count
+  end
+
+  def time_since_creation
+    seconds = Time.now - self.created_at
+    minutes = (seconds/60).round
+    hours = (minutes/60).round
+    days = (hours/24).round
+
+    if days > 0
+      "#{days} day(s), #{hours} ago"
+    elsif hours > 0
+      "#{hours} hours ago"
+    elsif minutes > 0
+      "#{minutes} minutes ago"
+    else
+      "#{seconds} seconds ago"
+    end
+
+  end
+
+  # def time_since_creation
+  #   ((Time.now - self.created_at) / 3600).round
+  # end
+
 end
