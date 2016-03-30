@@ -7,7 +7,7 @@ class Question < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
-  validates :title, :content, presence:
+  validates :title, :content, presence: true
 
   def answer_count
     self.answers.count
@@ -34,7 +34,9 @@ class Question < ActiveRecord::Base
     end
   end
 
-
+  def best_answer?
+    self.best_answer
+  end
 
   # def time_since_creation
   #   ((Time.now - self.created_at) / 3600).round

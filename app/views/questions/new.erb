@@ -1,15 +1,15 @@
 <%if @errors%>
 <ul>
   <%@errors.each do |error|%>
-  <li><%=error%>
+  <li><%=error%></li>
     <%end%>
-  </li>
+  </ul>
   <%end%>
 <div class="question-form">
   <form method='post' action='/questions'>
   <label for="title">Title:</label>
-  <input class="question-text" type='text' name="question[:title]" placeholder="Question"><br>
-  <textarea class="question-content" id="question-content" name="question[:content]"></textarea><br>
+  <input class="question-text" type='text' name="title" placeholder="Question"><br>
+  <textarea class="question-content" id="question-content" name="content"></textarea><br>
   <input class="question-button" type="submit" value="Create">
 </form>
 </div>
