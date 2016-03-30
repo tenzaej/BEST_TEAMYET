@@ -1,5 +1,9 @@
 helpers do
 
+  def author?(post)
+    current_user.id == post.user_id
+  end
+
   def logged_in?
     session[:user_id]
   end

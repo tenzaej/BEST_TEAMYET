@@ -10,6 +10,12 @@ end
 post '/questions' do
  question = current_user.questions.new(title: params[:title], content: params[:content])
   if question.save
+    if params[:tags] != nil
+      tags_array = params[:tags].split(",")
+      tags_array.each do |tag|
+        question.tags << Tag.create(name: tag)
+      end
+    end
     redirect "/questions/#{question.id}"
   else
     @errors = question.errors.full_messages
@@ -29,9 +35,15 @@ end
 
 put '/questions/:id' do
   @question = Question.find(params[:id])
-  @question = assign_attributes(params[:question])
-
+  @question.assign_attributes(title: params[:title], content: params[:content])
   if @question.save
+    if params[:tags] != nil
+      @question.tags.delete
+      tags_array = params[:tags].split(",")
+      tags_array.each do |tag|
+        @question.tags << Tag.create(name: tag)
+      end
+    end
     redirect "/questions/#{@question.id}"
   else
     erb :"questions/#{@question.id}/edit"
@@ -39,7 +51,7 @@ put '/questions/:id' do
 end
 
 delete '/questions/:id' do
-  @question = Question.find(params:[:id])
+  @question = Question.find(params[:id])
   @question.destroy
   redirect '/questions'
 end

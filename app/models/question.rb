@@ -38,6 +38,16 @@ class Question < ActiveRecord::Base
     self.best_answer
   end
 
+  def tags_string
+    tags=""
+    self.tags.each do |tag|
+      puts tag.name
+      tags << tag.name + ","
+      puts tags
+    end
+    tags + "..."
+  end
+
   # def time_since_creation
   #   ((Time.now - self.created_at) / 3600).round
   # end
