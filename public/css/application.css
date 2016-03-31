@@ -68,4 +68,39 @@ box-shadow:0px 0px 0px 2px  #c1c5c9;
   margin-left: 5%;
 }
 
+.arrow-up{
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid black;
+  display:block;
+}
+
+.arrow-down{
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid black;
+  display:block;
+}
+
+.red-arrow-up{
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid red;
+  display:block;
+}
+
+.red-arrow-down{
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid red;
+  display:block;
+}
 
