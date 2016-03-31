@@ -3,7 +3,7 @@ $(document).ready(function() {
   $(".clicker").on("click", function(event){
     event.preventDefault();
     var $this = $(this);
-    $(this).next().removeClass("hidden");
+    $(this).next().toggle();
   })
 
   $('#comment-question').on('submit', function(event) {
@@ -17,12 +17,31 @@ $(document).ready(function() {
     });
 
     ajaxRequest.done(function(response){
-      console.log($(this));
-      $('.comments-wrapper').append(response)
+      $('.question-comments-wrapper').append(response)
       $('#comment-question textarea').val("")
-      $('#comment-question').parent().addClass("hidden");
+      $('#comment-question').parent().toggle();
 
     });
+  });
+
+  $(".comment-on-answer-form").on("submit", function(event) {
+    event.preventDefault();
+    var $this = $(this) ;
+    comment_post = $this.serialize();
+    var url = $this.attr("action");
+    var ajaxRequest = $.ajax({
+      url: url,
+      type: 'post',
+      data: comment_post
+    });
+
+    ajaxRequest.done(function(response){
+      $('.answer-comments-wrapper').append(response)
+      $('#comment-on-answer-form textarea').val("")
+      $('#comment-on-answer-form').parent().toggle();
+
+    });
+
   });
 
   $(".au").on("click", function(event){
