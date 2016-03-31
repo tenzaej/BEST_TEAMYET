@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
     @password ||= Password.new(password_hash)
   end
 
-
-
   def password=(new_password)
     @plain_text_password = new_password
     @password = Password.create(new_password)
@@ -34,4 +32,24 @@ class User < ActiveRecord::Base
       errors.add(:password, "Password length must be at least 5")
     end
   end
+
+   def has_downvote?(post_id, type)
+    self.votes.each do |vote|
+      if vote.votable_type == type && vote.user_id == self.id && vote.votable_id == post_id && vote.value == -1
+        return true
+      end
+    end
+    return false
+  end
+
+  def has_upvote?(post_id, type)
+    self.votes.each do |vote|
+      if vote.votable_type == type && vote.user_id == self.id && vote.votable_id == post_id && vote.value == 1
+        return true
+      end
+    end
+    return false
+  end
+
+
 end

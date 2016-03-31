@@ -46,7 +46,7 @@ put '/questions/:id' do
     end
     redirect "/questions/#{@question.id}"
   else
-    erb :"questions/#{@question.id}/edit"
+    erb :"questions/edit"
   end
 end
 

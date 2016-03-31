@@ -1,11 +1,38 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   $(".clicker").on("click", function(event){
     event.preventDefault();
     $(".comment").toggle()
+  })
+
+  $(".au").on("click", function(event){
+    event.preventDefault()
+    $(this).addClass("red-arrow-up")
+    $(this).removeClass("arrow-up")
+
+    var url = $(this).attr("href")
+    var ajaxRequest = $.ajax({
+      type: "GET",
+      url: url
+    })
+    ajaxRequest.done(function(response){
+      var votes = $.parseJSON(response)
+      $(".vote-count").text(votes.vote_count)
+    })
+  });
+
+   $(".ad").on("click", function(event){
+    event.preventDefault()
+    $(this).addClass("red-arrow-down")
+    $(this).removeClass("arrow-down")
+    var url = $(this).attr("href")
+    var ajaxRequest = $.ajax({
+      type: "GET",
+      url: url
+    })
+    ajaxRequest.done(function(response){
+      var votes = $.parseJSON(response)
+      $(".vote-count").text(votes.vote_count)
+    })
   })
 });
