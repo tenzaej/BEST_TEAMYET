@@ -1,0 +1,51 @@
+header {
+
+}
+
+.logo {
+  float: left;
+}
+
+.logout {
+  color: white;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.logout:hover {
+  background-color:#4CAF50;
+}
+
+.nav-item {
+ margin-right: 20px;
+  border: 1px solid black;
+  background-color: grey;
+
+}
+
+.nav-item a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.nav-item a:hover {
+  background-color:#4CAF50;
+}
+
+.nav-tabs {
+  margin-left: 70%;
+    list-style-type: none;
+    overflow: hidden;
+   /* background-color: #333;*/
+}
+
+.top-nav {
+  width: 100%;
+}

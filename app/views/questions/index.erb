@@ -1,16 +1,22 @@
-<main class="container">
-  <h1>hello questions index page!! </h1>
+
+<main class="home-wrapper">
   <%if logged_in?%>
-    <a href='/questions/new'>New Question</a><br><br>
+    <a class="new-question-button" href='/questions/new'>New Question</a><br><br>
   <%end%>
-  <% @questions.each do |question| %>
-    <a href="/questions/<%= question.id %>"><%= question.title %></a><br>
-    Posted By: <a href="/users/<%= question.user.id %>"><%= question.user.username %></a><br>
-    Asked <%= question.time_since_creation %> <br>
-    Vote count: <%= question.vote_count %> <br>
-    Answer count: <%= question.answer_count %> <br>
-    Tags: <% question.tags.each do |tag| %>
-     <a href="/tags/<%=tag.id%>"><%= tag.name %></a><br>
-    <% end %><br>
-  <% end %>
+  <h1 class="question-items-header">Questions</h1>
+  <div class="question-items">
+    <% @questions.each do |question| %>
+    <article class="question-item">
+      <span class="question-item-stats">
+        <p>votes<br><%= question.vote_count %></p>
+        <p>answers<br><%= question.answer_count %></p>
+        <a class="site-link question-item-title" href="/questions/<%= question.id %>"><%= question.title %></a>
+        Asked By: <a class="site-link question-item-user" href="/users/<%= question.user.id %>"><%= question.user.username %></a><span> <%= question.time_since_creation %></span>
+        <p></p>
+
+      </span>
+      <% end %><br>
+  </div>
+
+    </article>
 </main>
