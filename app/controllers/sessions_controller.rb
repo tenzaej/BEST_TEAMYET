@@ -18,6 +18,6 @@ post '/session' do
 end
 
 delete '/session' do
-  session[:user_id] = nil
+  session.delete[:user_id]
   redirect '/questions'
 end

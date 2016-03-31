@@ -14,7 +14,11 @@ class Question < ActiveRecord::Base
   end
 
   def vote_count
-    self.votes.count
+    vote_val=0
+    self.votes.each do |vote|
+      vote_val += vote.value
+    end
+    vote_val
   end
 
   def time_since_creation
