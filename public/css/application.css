@@ -1,6 +1,10 @@
 textarea {
     resize: none;
 }
+
+.answers-wrapper {
+  background-color: red;
+}
 .comment {
  /* display: none;*/
 }
@@ -15,6 +19,10 @@ textarea {
 
 .best-answer-wrapper {
   /*border: 2px solid green;*/
+}
+
+.comment-on-answer-form {
+
 }
 
 .hidden {
