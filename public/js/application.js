@@ -69,6 +69,7 @@ $(document).ready(function() {
 
   $(".au").on("click", function(event){
     event.preventDefault()
+    var that = $(this)
     $(this).addClass("red-arrow-up")
     $(this).removeClass("arrow-up")
 
@@ -79,12 +80,13 @@ $(document).ready(function() {
     })
     ajaxRequest.done(function(response){
       var votes = $.parseJSON(response)
-      $(".vote-count").text(votes.vote_count)
+      that.siblings(".vote-count").text(votes.vote_count)
     })
   });
 
    $(".ad").on("click", function(event){
     event.preventDefault()
+    var that = $(this)
     $(this).addClass("red-arrow-down")
     $(this).removeClass("arrow-down")
     var url = $(this).attr("href")
@@ -94,7 +96,7 @@ $(document).ready(function() {
     })
     ajaxRequest.done(function(response){
       var votes = $.parseJSON(response)
-      $(".vote-count").text(votes.vote_count)
+      that.siblings(".vote-count").text(votes.vote_count)
     })
   })
 });

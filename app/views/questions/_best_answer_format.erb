@@ -1,0 +1,19 @@
+ <div class="best-answer-wrapper">
+<%if @question.best_answer?%>
+  <br>BEST Answer vote count: <span class="vote-count"><%= @question.best_answer.answer_vote_count %></span> <br>
+
+   <%if current_user.has_upvote?(@question.best_answer.id, "Answer")%>
+    <a class = "au red-arrow-up" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/upvote'></a><br>
+    <%else%>
+    <a class = "au arrow-up" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/upvote'></a><br>
+    <%end%>
+    <%if current_user.has_downvote?(@question.best_answer_id, "Answer")%>
+    <a class= "ad red-arrow-down" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/downvote'></a><br>
+    <%else%>
+    <a class= "ad arrow-down" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/downvote'></a><br>
+    <%end%>
+  <%= @question.best_answer.content %>
+  <%= @question.best_answer.created_at %>
+  <a href="/users/<%= @question.best_answer.user.id %>"><%= @question.best_answer.user.username %></a>
+  <%end%>
+  </div>

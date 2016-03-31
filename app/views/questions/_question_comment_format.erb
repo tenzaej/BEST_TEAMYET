@@ -1,0 +1,11 @@
+<div class="question-comments-wrapper">
+    <% @question.comments.each do |comment| %>
+      <div class="comment-wrapper">
+        <br>
+        <%= comment.content %>
+        <br>
+        <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a><br>
+        <%= comment.created_at %> <br>
+      </div>
+    <% end %>
+  </div>
