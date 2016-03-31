@@ -5,6 +5,18 @@ textarea {
  /* display: none;*/
 }
 
+.comment-wrapper {
+  /*border: 2px solid red;*/
+}
+
+.answer-wrapper {
+  /*border: 2px solid blue;*/
+}
+
+.best-answer-wrapper {
+  /*border: 2px solid green;*/
+}
+
 .hidden {
   display: none;
 }

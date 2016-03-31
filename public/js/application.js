@@ -6,6 +6,27 @@ $(document).ready(function() {
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   $(".clicker").on("click", function(event){
     event.preventDefault();
-    $(".comment").toggle()
+    var $this = $(this);
+    $(this).next().removeClass("hidden");
   })
+
+  $('#comment-question').on('submit', function(event) {
+    event.preventDefault();
+    var comment_post = $(this).serialize();
+    var url = $(this).attr('action')
+    var ajaxRequest = $.ajax({
+      url: url,
+      type: 'post',
+      data: comment_post
+    });
+
+    ajaxRequest.done(function(response){
+      console.log($(this));
+      $('.comments-wrapper').append(response)
+      $('#comment-question textarea').val("")
+      $('#comment-question').parent().addClass("hidden");
+
+    });
+  });
+
 });
