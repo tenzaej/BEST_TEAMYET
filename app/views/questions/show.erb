@@ -1,125 +1,23 @@
 <main class="container">
   <h1>show page for <%= @question.title %> </h1>
-  <% if logged_in? %>
-    <% if author?(@question) %>
-    <a href="/questions/<%=@question.id%>/edit">Edit</a>
-     <form method="post" action="/questions/<%= @question.id %>">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Delete">
-      </form>
-    <% end %>
-    <%end%>
+  <%=erb :'/questions/_question_format'%>
+  <%=erb :'/questions/_edit_and_delete'%>
+  <%=erb :'/questions/_answer_question_form'%>
+  <%=erb :'/questions/_question_comment_format'%>
+  <%=erb :'/questions/_best_answer_format'%>
+  <%=erb :'/questions/_question_answer_format'%>
 
 
-  <!-- Question-->
-
-<div class="question">
-  Question vote count: <span class="vote-count"><%= @question.vote_count %></span> <br>
-
-  <%if current_user.has_upvote?(@question.id, "Question")%>
-  <a class = "au red-arrow-up" href='/questions/<%=@question.id%>/upvote'></a><br>
-  <%else%>
-  <a class = "au arrow-up" href='/questions/<%=@question.id%>/upvote'></a><br>
-  <%end%>
-  <%if current_user.has_downvote?(@question.id, "Question")%>
-  <a class= "ad red-arrow-down" href='/questions/<%=@question.id%>/downvote'></a><br>
-  <%else%>
-  <a class= "ad arrow-down" href='/questions/<%=@question.id%>/downvote'></a><br>
-  <%end%>
-
-  <%= @question.content %>
-  <% @question.tags.each do |tag| %>
-    <br><a href="/tags/<%= tag.id %>"><%= tag.name %></a>
-  <% end %>
-  <%= @question.created_at %>
-  <%= @question.user.username %>
-  <div class="comment hidden">
-    <form method="post" action="/questions/<%=@question.id %>/comments">
-      <textarea rows="4" cols="50" name="content"></textarea> <br />
-      <input type="submit" value="Comment" >
-    </form>
-  </div>
-  <a class = "clicker" href="">Comment</a>
-</div>
-
-  <!-- Comments -->
-
-<div class="question-comment">
-  <% @question.comments.each do |comment| %>
-    <br><%= comment.content %>
-    <br><a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a><br>
-    <%= comment.created_at %> <br>
-  <% end %>
-</div>
-  <!-- The very best answer -->
-<div class="best-answer">
-<%if @question.best_answer?%>
-  <br>BEST Answer vote count: <span class="vote-count"><%= @question.best_answer.answer_vote_count %></span> <br>
-
-   <%if current_user.has_upvote?(@question.best_answer.id, "Answer")%>
-    <a class = "au red-arrow-up" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/upvote'></a><br>
-    <%else%>
-    <a class = "au arrow-up" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/upvote'></a><br>
-    <%end%>
-    <%if current_user.has_downvote?(@question.best_answer_id, "Answer")%>
-    <a class= "ad red-arrow-down" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/downvote'></a><br>
-    <%else%>
-    <a class= "ad arrow-down" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/downvote'></a><br>
-    <%end%>
-  <%= @question.best_answer.content %>
-  <%= @question.best_answer.created_at %>
-  <a href="/users/<%= @question.best_answer.user.id %>"><%= @question.best_answer.user.username %></a>
-  <%end%>
-</div>
-
-  <!-- answer -->
-<div class="question-answer">
-  <% @question.answers.each do |answer| %>
-
-    <%unless answer.best_answer?(@question.best_answer.id)%>
 
 
-    <br>Answer vote count: <span class="vote-count"><%= answer.answer_vote_count %></span> <br>
-
-    <%if current_user.has_upvote?(answer.id, "Answer")%>
-    <a class = "au red-arrow-up" href='/questions/<%=@question.id%>/answers/<%=answer.id%>/upvote'></a><br>
-    <%else%>
-    <a class = "au arrow-up" href='/questions/<%=@question.id%>/answers/<%=answer.id%>/upvote'></a><br>
-    <%end%>
-    <%if current_user.has_downvote?(answer.id, "Answer")%>
-    <a class= "ad red-arrow-down" href='/questions/<%=@question.id%>/answers/<%=answer.id%>/downvote'></a><br>
-    <%else%>
-    <a class= "ad arrow-down" href='/questions/<%=@question.id%>/answers/<%=answer.id%>/downvote'></a><br>
-    <%end%>
-
-    <%= answer.content %>
-    <%= answer.created_at %>
-    <a href="/users/<%= answer.user.id %>"><%= answer.user.username %></a>
-    <br><br>
-</div>
-
-<div class="answer-comment">
-    <% answer.comments.each do |comment| %>
-      Comment:<br><%= comment.content %>
-      <br><a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a><br>
-      <%= comment.created_at %> <br>
-    <% end %>
 
 
-    <form method="POST" action="/questions/<%= @question.id %>/answers/<%= answer.id %>/comment">
-      <textarea rows="4" cols="50" name="content"></textarea> <br />
-      <input type="submit" value="Comment" >
-    </form>
-    <%end%>
-  <%end%>
-</div>
-<!-- the very best answer will be interpolated appropriately, but then it needs to add a css class of 'hidden' to it when we come back with the jquery stuff. -->
 
-  <form method="POST" action="/questions/<%= @question.id %>/answer">
-    <textarea rows="4" cols="50" name="content"></textarea> <br />
-    <input type="submit" value="Answer" >
 
-  </form>
+
+
+
+
 
 
 

@@ -1,0 +1,8 @@
+<a class = "clicker" href="">Answer the question</a>
+  <div class="hideable hidden">
+    <form id="answer-question-form" method="POST" action="/questions/<%= @question.id %>/answer">
+      <textarea rows="4" cols="50" name="content"></textarea> <br />
+      <input type="submit" value="Answer" >
+    </form>
+
+</div>
