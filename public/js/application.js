@@ -1,15 +1,14 @@
 $(document).ready(function() {
-
   $(".clicker").on("click", function(event){
     event.preventDefault();
     var $this = $(this);
     $(this).next().toggle();
   })
 
-  $('#comment-question').on('submit', function(event) {
+  $('.hideable').on('submit', '#comment-question', function(event) {
     event.preventDefault();
     var comment_post = $(this).serialize();
-    var url = $(this).attr('action')
+    var url = $(this).attr('action');
     var ajaxRequest = $.ajax({
       url: url,
       type: 'post',
@@ -17,16 +16,18 @@ $(document).ready(function() {
     });
 
     ajaxRequest.done(function(response){
-      $('.question-comments-wrapper').append(response)
-      $('#comment-question textarea').val("")
+      $('.question-comments-wrapper').append(response);
+      $('#comment-question textarea').val("");
       $('#comment-question').parent().toggle();
 
     });
   });
 
-  $(".comment-on-answer-form").on("submit", function(event) {
+  $('.hideable').on('submit', '#comment-on-answer-form', function(event) {
+
     event.preventDefault();
-    var $this = $(this) ;
+    // console.log(event);
+    var $this = $(this);
     comment_post = $this.serialize();
     var url = $this.attr("action");
     var ajaxRequest = $.ajax({
@@ -36,9 +37,31 @@ $(document).ready(function() {
     });
 
     ajaxRequest.done(function(response){
-      $('.answer-comments-wrapper').append(response)
-      $('#comment-on-answer-form textarea').val("")
+      $('.answer-comments-wrapper').append(response);
+      $('#comment-on-answer-form textarea').val("");
       $('#comment-on-answer-form').parent().toggle();
+
+    });
+
+  });
+
+  $('#answer-question-form').on('submit', function(event) {
+
+    event.preventDefault();
+    // console.log(event);
+    var $this = $(this);
+    answer_post = $this.serialize();
+    var url = $this.attr("action");
+    var ajaxRequest = $.ajax({
+      url: url,
+      type: 'post',
+      data: answer_post
+    });
+
+    ajaxRequest.done(function(response){
+      $('.answers-wrapper').append(response);
+      $('#answer-question-form textarea').val("");
+      $('#answer-question-form').parent().toggle();
 
     });
 

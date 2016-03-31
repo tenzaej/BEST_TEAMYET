@@ -1,6 +1,10 @@
 textarea {
     resize: none;
 }
+
+.answers-wrapper {
+  background-color: red;
+}
 .comment {
  /* display: none;*/
 }
