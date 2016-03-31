@@ -1,3 +1,12 @@
+.top-nav ul li{
+  display: inline-block;
+}
+
+.top-nav{
+  display: block;4fzzxc vo  b
+  float: right;
+}
+
 textarea {
     resize: none;
 }

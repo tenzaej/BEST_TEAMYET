@@ -5,7 +5,11 @@ class Answer < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   def answer_vote_count
-    self.votes.count
+   vote_val=0
+    self.votes.each do |vote|
+      vote_val += vote.value
+    end
+    vote_val
   end
 
   def best_answer?(best_id)
