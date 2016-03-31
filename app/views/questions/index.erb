@@ -4,6 +4,7 @@
     <a href='/questions/new'>New Question</a><br><br>
   <%end%>
   <% @questions.each do |question| %>
+  <div class="index-question">
     <a href="/questions/<%= question.id %>"><%= question.title %></a><br>
     Posted By: <a href="/users/<%= question.user.id %>"><%= question.user.username %></a><br>
     Asked <%= question.time_since_creation %> <br>
@@ -13,4 +14,5 @@
      <a href="/tags/<%=tag.id%>"><%= tag.name %></a><br>
     <% end %><br>
   <% end %>
+  </div>
 </main>
