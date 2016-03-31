@@ -1,7 +1,8 @@
+<div class="section-container">
 <div class="question-comments-wrapper">
     <% @question.comments.each do |comment| %>
       <div class="comment-wrapper">
-        <br>
+        Comment:<br>
         <%= comment.content %>
         <br>
         <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a><br>
@@ -9,3 +10,4 @@
       </div>
     <% end %>
   </div>
+</div>
