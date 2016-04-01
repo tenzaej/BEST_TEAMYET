@@ -1,3 +1,26 @@
+a.new-question-button {
+  display: block;
+  float: right;
+  color: #666;
+  background-color: #eee;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  padding: 10px 30px;
+  margin-right: 30px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-bottom-width: 3px;
+}
+
+a.new-question-button:hover {
+    background-color: #e3e3e3;
+    border-color: rgba(0,0,0,0.5);
+  }
+
+
 .top-nav ul li{
   display: inline-block;
 }
@@ -40,15 +63,15 @@ textarea {
 .logout{
   background: none;
   border: none;
-  text-decoration: underline;
-  color: blue;
+ /* text-decoration: underline;*/
+ /* color: blue;*/
 }
 
 .question-form{
 border: 2px solid black;
 margin-left: 15%;
 width: 700px;
-height: 580px;
+height: 680px;
 padding-bottom: 10px;
 }
 
@@ -58,6 +81,14 @@ padding-bottom: 10px;
   display: inline-block;
   padding-right: 10px;
   font-size: 1.25em
+}
+
+.new-question-button {
+
+}
+
+.site-link {
+
 }
 
 .question-text{
@@ -106,6 +137,10 @@ box-shadow:0px 0px 0px 2px  #c1c5c9;
   display:block;
 }
 
+.new-question-header {
+  margin-left: 5%;
+}
+
 .arrow-down{
   width: 0;
   height: 0;
@@ -151,6 +186,60 @@ body {
   padding: 20px;
   /*padding-right: 20px;*/
 }
+
+/*
+.text-content{
+  padding-top: 20px;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.vote-count{
+  padding-bottom: 5px;
+  margin-top: -10px;
+  margin-left: 9px;
+  font-weight: 900;
+  font-size: 1.3em;
+}
+
+.tags{
+list-style-type: none;
+ display: block;
+  margin-left:29px;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 5px;
+  border: 2px solid black;
+  border-radius: 2px;
+  padding: 3px;
+  margin-right: 5px;
+  background-color:#0077CC;
+}
+.tag:hover {
+   background-color:#014475;
+  box-shadow: 1px 1px 1px 1px #949a9e;
+}
+
+.tag a{
+  color:white;
+   text-decoration: none;
+}
+
+.clicker {
+  display:inline-block;
+  margin-top: 10px;
+  margin-left:69px;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  padding: 5px;
+  color: white;
+  background-color:#0077CC;
+}
+*/
+*/
 
 .text-content{
   padding-top: 20px;
