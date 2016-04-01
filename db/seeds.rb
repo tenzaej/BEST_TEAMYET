@@ -4,9 +4,11 @@ User.create(username: "Connor", email: "Connor@gmail.com", password: "12345", im
 User.create(username: "Mitch", email: "Mitch@hotmail.com", password: "12345", image_url: Faker::Avatar.image)
 User.create(username: "Eric", email: "Eric@gmail.com", password: "12345", image_url: Faker::Avatar.image)
 User.create(username: "Chris", email: "Chris@gmail.com", password: "12345", image_url: Faker::Avatar.image)
-
-
+User.create(username: "Karl", email: "Karl@gmail.com", password: "12345", image_url: "http://media.salon.com/2014/04/karl_marx.jpg")
+User.create(username: "TuffGong", email: "Bobby@gmail.com", password: "12345", image_url: "https://lh5.googleusercontent.com/-jaNM0BX_1oY/AAAAAAAAAAI/AAAAAAAAWKw/vw1YRbueEJQ/s0-c-k-no-ns/photo.jpg")
 user_id = [1,2,3,4]
+ Question.create(user_id: 5, best_answer_id: (1..40).to_a.sample,content: "There is still a compulsive quality to its prose as it provides insight after insight into the society in which we live, where it comes from and where its going to. It is still able to explain, as mainstream economists and sociologists cannot, today's world of recurrent wars and repeated economic crisis, of hunger for hundreds of millions on the one hand and 'overproduction' on the other. There are passages that could have come from the most recent writings on globalisation", title: "Communism!")
+ Question.create(user_id: 6, best_answer_id: (1..40).to_a.sample, content: "Better to die fighting for freedom then be a prisoner all the days of your life.", title: "Just a thought...")
 20.times do
   Question.create(user_id: user_id.sample, best_answer_id: (1..40).to_a.sample,content: Faker::Hipster.paragraph, title: Faker::Company.catch_phrase)
 end

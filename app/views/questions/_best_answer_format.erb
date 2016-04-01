@@ -2,6 +2,7 @@
  <div class="best-answer-wrapper">
 <%if @question.best_answer?%>
 <div class="vote-buttons">
+  <%if logged_in?%>
    <%if current_user.has_upvote?(@question.best_answer.id, "Answer")%>
     <a class = "au red-arrow-up" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/upvote'></a><br>
     <div class="vote-count"><%= @question.best_answer.answer_vote_count %></div>
@@ -13,6 +14,7 @@
     <a class= "ad red-arrow-down" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/downvote'></a><br>
     <%else%>
     <a class= "ad arrow-down" href='/questions/<%=@question.id%>/answers/<%=@question.best_answer_id%>/downvote'></a><br>
+    <%end%>
     <%end%>
   </div>
   <div class="text-content">
