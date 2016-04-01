@@ -186,6 +186,9 @@ body {
   padding: 20px;
   /*padding-right: 20px;*/
 }
+.edit-delete{
+  list-style-type: none;
+}
 
 /*
 .text-content{

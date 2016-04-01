@@ -1,9 +1,11 @@
 <% if logged_in? && author?(@question) %>
     <% if author?(@question) %>
-      <a href="/questions/<%=@question.id%>/edit">Edit</a>
+    <br>
+      <ul class="edit-delete"><li class="edit-button"><a  href="/questions/<%=@question.id%>/edit">Edit</a></li>
       <form method="post" action="/questions/<%= @question.id %>">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Delete">
+        <li class="delete-button"><input  type="submit" value="Delete"></li>
       </form>
+    </ul>
     <% end %>
     <%end%>
