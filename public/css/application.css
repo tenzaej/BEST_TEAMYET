@@ -187,6 +187,60 @@ body {
   /*padding-right: 20px;*/
 }
 
+/*
+.text-content{
+  padding-top: 20px;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.vote-count{
+  padding-bottom: 5px;
+  margin-top: -10px;
+  margin-left: 9px;
+  font-weight: 900;
+  font-size: 1.3em;
+}
+
+.tags{
+list-style-type: none;
+ display: block;
+  margin-left:29px;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 5px;
+  border: 2px solid black;
+  border-radius: 2px;
+  padding: 3px;
+  margin-right: 5px;
+  background-color:#0077CC;
+}
+.tag:hover {
+   background-color:#014475;
+  box-shadow: 1px 1px 1px 1px #949a9e;
+}
+
+.tag a{
+  color:white;
+   text-decoration: none;
+}
+
+.clicker {
+  display:inline-block;
+  margin-top: 10px;
+  margin-left:69px;
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  padding: 5px;
+  color: white;
+  background-color:#0077CC;
+}
+*/
+*/
+
 .text-content{
   padding-top: 20px;
   font-size: 1.1em;
