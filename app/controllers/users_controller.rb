@@ -17,6 +17,5 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  redirect '/' unless current_user == @user
   erb :'/users/show'
 end

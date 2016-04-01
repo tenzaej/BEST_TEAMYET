@@ -4,8 +4,9 @@
   <% @question.answers.each do |answer| %>
     <div id="<%=answer.id %>">
     <%unless answer.best_answer?(@question.best_answer.id)%>
-
+<%if logged_in?%>
  <%=erb :'/questions/_vote_button'%>
+ <%end%>
   <div class="whole-answer">
   <div class="text-content">
     <%= answer.content %>

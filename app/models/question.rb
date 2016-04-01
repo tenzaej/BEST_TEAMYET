@@ -53,7 +53,7 @@ class Question < ActiveRecord::Base
       tags << tag.name + ","
       puts tags
     end
-    tags + "..."
+    tags
   end
 
 

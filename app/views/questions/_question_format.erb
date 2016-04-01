@@ -1,6 +1,7 @@
 <div class="section-container">
-
+<%if logged_in?%>
  <%=erb :'/questions/_vote_button'%>
+ <%end%>
 <div class="text-content">
   <%= @question.content %>
 </div>

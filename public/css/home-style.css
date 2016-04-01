@@ -1,0 +1,24 @@
+.question-item {
+}
+
+.question-items {
+  margin-left: 120px;
+
+}
+
+.question-items-header {
+  margin-left: 50px;
+}
+
+.question-item-stats {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.question-item-stats p {
+  display: inline-block;
+  width: 60px;
+}
+
+
