@@ -1,24 +1,17 @@
  <!-- answer -->
+ <div class="section-container">
   <div class="answers-wrapper">
   <% @question.answers.each do |answer| %>
-    <div id="<%=answer.id %>"
+    <div id="<%=answer.id %>">
     <%unless answer.best_answer?(@question.best_answer.id)%>
 
-    <br>Answer vote count: <span class="vote-count"><%= answer.answer_vote_count %></span> <br>
-
-    <%if current_user.has_upvote?(answer.id, "Answer")%>
-    <a class = "au red-arrow-up" href='/questions/<%=@question.id%>/answers/<%=answer.id%>/upvote'></a><br>
-    <%else%>
-    <a class = "au arrow-up" href='/questions/<%=@question.id%>/answers/<%=answer.id%>/upvote'></a><br>
-    <%end%>
-    <%if current_user.has_downvote?(answer.id, "Answer")%>
-    <a class= "ad red-arrow-down" href='/questions/<%=@question.id%>/answers/<%=answer.id%>/downvote'></a><br>
-    <%else%>
-    <a class= "ad arrow-down" href='/questions/<%=@question.id%>/answers/<%=answer.id%>/downvote'></a><br>
-    <%end%>
+ <%=erb :'/questions/_vote_button'%>
+  <div class="whole-answer">
+  <div class="text-content">
     <%= answer.content %>
+  </div>
     <%= answer.created_at %>
-    <a href="/users/<%= answer.user.id %>"><%= answer.user.username %></a>
+    <a href="/users/<%= answer.user.id %>"><br><%= answer.user.username %></a>
     <br><br>
         <div class="answer-comments-wrapper">
           <% answer.comments.each do |comment| %>
@@ -31,17 +24,20 @@
             </div>
           <% end %> <!-- End comments on answer-->
         </div> <!-- End answer-comments-wrapper -->
-
+        <div class="comment-button">
         <a class = "clicker" href="">Comment on Answer</a>
         <div class="hideable hidden">
           <form id="comment-on-answer-form" method="post" action="/questions/<%= @question.id %>/answers/<%= answer.id %>/comment">
             <textarea rows="4" cols="50" name="content"></textarea> <br />
             <input type="submit" value="Comment" >
           </form>
+        </div>
         </div> <!-- End hidable-wrapper -->
-
+        </div>
     <%end%> <!-- End if author? -->
   <%end%> <!-- End question.answers iteration -->
   </div> <!-- End answer-wrapper -->
   </div> <!-- End answers-wrapper -->
+
+</div>
 </div>

@@ -20,9 +20,12 @@
 </head>
 <body>
   <header>
-    <nav class="top-nav">
+
+  <center><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ><img src="http://i.imgur.com/L5XK5jb.png" ></center>
+  <nav class="top-nav">
     <ul class="nav-tabs">
-      <li class="nav-item"><a href="/questions">Home</a></li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Red_stylized_fist.svg/2000px-Red_stylized_fist.svg.png">
+      <li class="nav-item home-btn"><a href="/questions">Home</a></li>
       <% if logged_in? %>
        <li class="nav-item"><a class="" href="/users/<%= current_user.id%>"><%= current_user.username%></a></li>
        <li class="nav-item">
@@ -42,5 +45,6 @@
   </header>
 
   <%= yield %>
+
 </body>
 </html>

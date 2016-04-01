@@ -59,7 +59,8 @@ $(document).ready(function() {
     });
 
     ajaxRequest.done(function(response){
-      $('.answers-wrapper').append(response);
+      $('.container').append(response);
+      console.log(response);
       $('#answer-question-form textarea').val("");
       $('#answer-question-form').parent().toggle();
 

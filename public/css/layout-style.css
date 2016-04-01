@@ -6,6 +6,11 @@ header {
   float: left;
 }
 
+.home-btn {
+  color: red;
+  margin-right: 300px;
+}
+
 .logout {
   color: white;
   display: block;
