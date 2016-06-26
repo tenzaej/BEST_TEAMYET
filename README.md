@@ -1,4 +1,4 @@
-# BEST_TEAMYET
+# README
 
 ## Stack Overflow Knockoff Assignment
 
